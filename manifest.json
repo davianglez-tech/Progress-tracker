@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Edgenuity Progress Tracker",
+  "version": "1.0.0",
+  "description": "Track your progress on Edgenuity and get alerts every 10% completion",
+  "permissions": [
+    "storage",
+    "tabs",
+    "scripting",
+    "notifications"
+  ],
+  "host_permissions": [
+    "https://*.edgenuity.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.edgenuity.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_title": "Edgenuity Progress Tracker",
+    "default_popup": "popup.html"
+  }
+}
